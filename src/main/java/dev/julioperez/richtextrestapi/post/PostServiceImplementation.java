@@ -3,6 +3,7 @@ package dev.julioperez.richtextrestapi.post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,10 +17,15 @@ public class PostServiceImplementation implements PostService{
     }
 
     @Override
-    public String createPost(Post post) {
-        if(post.getText().contains("<br>")){
-            return "formato no permitido, no se permite espacios verticales en el texto";
-        }
-        return Optional.of(postRepository.savePost(post.getText())).orElse("No se guardó");
+    public Post createPost(Post post) {
+        return Optional.of(postRepository.savePost(
+                post.getTitle(),
+                post.getNumberClass(),
+                post.getText())).orElseThrow(IllegalStateException::new);
+    }
+
+    @Override
+    public List<Post> getAllPost() {
+        return postRepository.getAllPost();
     }
 }

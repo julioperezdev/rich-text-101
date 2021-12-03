@@ -1,6 +1,10 @@
 package dev.julioperez.richtextrestapi.post;
 
+import java.util.List;
+
 public interface PostService {
 
-    String createPost(Post post);
+    Post createPost(Post post);
+
+    List<Post> getAllPost();
 }
