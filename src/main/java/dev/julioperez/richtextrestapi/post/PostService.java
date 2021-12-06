@@ -6,5 +6,7 @@ public interface PostService {
 
     Post createPost(Post post);
 
+    Post getPostByNumberClass(int numberClass);
+
     List<Post> getAllPost();
 }

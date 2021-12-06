@@ -23,6 +23,11 @@ public class PostController {
         return postService.getAllPost();
     }
 
+    @GetMapping("/getby/class/{numberClass}")
+    public Post getPostByNumberClass(@PathVariable("numberClass") int numberClass){
+        return postService.getPostByNumberClass(numberClass);
+    }
+
     @PutMapping("/generate")
     public Post createPost(@RequestBody Post post){
         Post generationResponse = postService.createPost(post);

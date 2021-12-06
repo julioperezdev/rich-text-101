@@ -25,6 +25,11 @@ public class PostServiceImplementation implements PostService{
     }
 
     @Override
+    public Post getPostByNumberClass(int numberClass) {
+        return postRepository.getPostByNumberClass(numberClass);
+    }
+
+    @Override
     public List<Post> getAllPost() {
         return postRepository.getAllPost();
     }
